@@ -1,0 +1,13 @@
+@charset "UTF-8";
+html{
+  box-sizing: border-box;
+}
+.body{
+  background-color: cornsilk;
+}
+.h2{
+  color: midnightblue;
+}
+ul{
+  color: #696969;
+}
