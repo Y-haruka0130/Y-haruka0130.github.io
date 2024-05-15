@@ -1,163 +1,38 @@
-<!doctype html>
-<html lang="jp">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="style.css">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    body{
-      background-color: ivory;
-    }
-    .container{
-      background-color: ivory;
-    }
-    .self-introduction-header {
-      background-color: ivory;
-      color: blue;
-      font-size: 60px;
-      border-bottom: 1px solid#696969;
-    }
-    .self-introduction-header h2 {
-      margin-left: 500px;
-    }
-    .self-introduction{
-      background-color: ivory;
-      border-bottom:1px solid#696969;
-    }
-    .self-introduction ul{
-      margin-left: 440px;
-      color: black;
-    }
-    p{
-      color: black;
-    }
-    .hobby {
-      background-color: ivory;
-      color: black;
-    }
-    .hobby h2{
-      color: blue;
-      margin-left: 600px;
-    }
-    .hobby ul{
-      font-size: 25px;
-      color: dimgrey;
-      width: 500px;
-    }
-    .hobby p{
-      margin-left: 100px;
-      margin-right: 100px;
-    }
-    .accordion-header{
-      width: max-content;
-    }
-    .contact{
-      background-color: ivory;
-    }
-    .contact p{
-      color: black;
-    }
-    .contact h2{
-      color: blue;
-    }
-
-  </style>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-</head>
-
-<body>
-
-<div class="container">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<main>
-<div class = self-introduction-header>
-  <h2>自己紹介</h2>
-  </div>
-  <div class =self-introduction>
-<ul>
-
-  <li>所属　東京工科大学　メディア学部2年</li>
-  <li>名前 山之井遥珂</li>
-  <li>学籍番号 M0A23287</li>
-  <li>誕生日　1月30日</li>
-</ul>
-  </div>
-  <div class ="hobby">
-<h2>趣味</h2>
-    <ul>
-      <li>宝石</li>
-    </ul>
-    <p>
-      宝石を集めるのが好きです。主に12月頃に池袋で開催される東京ミネラルショーというイベントで宝石を買っています。
-      基本的にルース(石のみ)で買うことが多いのでたまに勿体なく感じてハンドメイドで ペンダントトップに加工したりもします。
-      ミネラルショーに行く大体の宝石が500円くらいから買うことができるのでほぼ毎年何万円か持って池袋に行っています。
-      たまに穴が開いているものが売っているのですが、買う時にはほとんど気にしていないけれどもハンドメイドでアクセサリーにするときに穴の有難さを感じます。
-      ラピスラズリの青が一番好きです。
-    </p>
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
-    <div class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button"
-              data-bs-toggle="collapse" data-bs-target="#collapseOne"
-              aria-expanded="false" aria-controls="collapseOne">
-        写真
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
       </button>
-    </div>
-    <div id="collapseOne" class="accordion-collapse collapse"
-         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-
-        <div class="image">
-          <img src ="photos/1703218667634.jpg" alt="水晶" width="300" height="400">
-          <img src="photos/1703218665182.jpg" alt="アパタイト" width="300" height="400">
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-<ul>
-  <li>イラスト</li>
-</ul>
-    <p>
-      中学生からイラストを描いています。ノートの端に鉛筆で絵を描いたり、デジタルでペンタブを使って絵を描く等しています。
-      最初はカービィのキャラクターを描いていましたが、
-    </p>
-    <div class="accordion" id="accordionTwo">
-      <div class="accordion-item">
-        <div class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button"
-                  data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                  aria-expanded="false" aria-controls="collapseTwo">
-            詳細
-          </button>
-        </div>
-        <div id="collapseTwo" class="accordion-collapse collapse"
-             aria-labelledby="headingTwo" data-bs-parent="#accordionTwo">
-          <div class="accordion-body">AAA...</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="contact">
-    <div class="contact-header">
-    <h2>
-      連絡先
     </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
   </div>
-    <ul>
-      <li>
-        G-mail：m0a232873d@edu.teu.ac.jp
-      </li>
-      <li>
-        github:<a href="https://github.com/y-haruka0130" target="_blank" >Y-haruka0130</a>
-      </li>
-    </ul>
-
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
   </div>
-</main>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
 </div>
-</body>
-</html>

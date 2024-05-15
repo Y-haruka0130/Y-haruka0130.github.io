@@ -1,13 +1,4 @@
 @charset "UTF-8";
 html{
-  box-sizing: border-box;
 }
-.body{
-  background-color: ivory;
-}
-.h2{
-  color: midnightblue;
-}
-ul{
-  color: #696969;
 }
