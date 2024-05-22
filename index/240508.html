@@ -11,8 +11,8 @@
     }
     .back{
       background-color: ghostwhite;
-      margin-right: 100px;
-      margin-left: 100px;
+      margin-right: 50px;
+      margin-left: 50px;
       padding-bottom: 60px;
     }
     .introduce{
@@ -26,6 +26,8 @@
     .hobby{
       margin-right: 60px;
       margin-left: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid black;
     }
     .contact{
       margin-left: 60px;
@@ -54,7 +56,6 @@
     .hobby-introduce-text{
       padding-top: 30px;
       padding-bottom: 30px;
-      border-bottom: 1px solid black;
     }
     .hobby ul{
       color: indigo;
@@ -66,14 +67,28 @@
       margin-left: 70px;
       margin-right: 70px;
     }
-    .text{
-
+    .image{
+    }
+    .image-introduce p{
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    .jwely-image{
+      float: left;
+      padding: 0 1em 1em 0;
+    }
+    .clear{
+      clear: both;
+    }
+    .image2{
+      margin-left: 50px;
     }
   </style>
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <div class="back">
+  <div class="container">
+    <div class="back">
     <div class="introduce">
      <div class="introduce-header">
       <h2>自己紹介</h2>
@@ -115,28 +130,54 @@
       <div id="collapseOne" class="accordion-collapse collapse"
           aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-　　　　　　
-          <figure class="image"><img src="photos/1703218665182.jpg" alt="アパタイトの写真" width="400" height="480"></figure>
-          <p>
-            去年買ったネオンブルーアパタイトです。そもそもが小さい上にスマホのカメラに傷が入っていたり、そもそもあまりいい機種ではなかったりで
-            あまり上手に撮れませんでした。この写真だと加工で光らせているように見えますが、本当にこんな感じの光りかたをしているので見ていて飽きません
-          </p>
-          <figure class="image2"><img src="photos/1703218667634.jpg" alt="水晶の写真" width="400" height="480"></figure>
-
-          <figure class="image3"><img src="photos/DSC_0053.JPG" alt="写真"></figure>
+          <div class="image-introduce">
+            <figure class="image"><img src="photos/1703218665182.jpg" alt="アパタイトの写真" class="jwely-image" width="300" height="400"></figure>
+            <div class="image-introduce-text">
+            <p>
+              去年買ったネオンブルーアパタイトです。そもそもが小さい上にスマホのカメラに傷が入っていたり、そもそもあまりいい機種ではなかったりで
+              あまり上手に撮れませんでした。この写真だと加工で光らせているように見えますが、無加工です。フラッシュ焚いてるので光って見えるのはありますが、
+              本当にこんな感じの光り方をするので見てて飽きません。
+            </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+            <div class="image-introduce">
+          <figure class="image"><img src="photos/1703218667634.jpg" alt="水晶の写真" class="jwely-image" width="300" height="400"></figure>
+              <div class="image-introduce-text">
+            <p>
+              小学六年生の時に買った水晶です。確か小学生は500円！みたいな売り文句の元購入した記憶があります。ネオンブルーアパタイトと共に去年の授業課題に使うために写真を撮ったので同じ背景をつかっている、
+              と考えればネオンブルーアパタイトとの大きさの差が分かりやすいと思います。もっと言えば人間の親指と同じくらいの高さがあります。今考えるとこんな大きな
+              水晶、絶対に千円未満で買えるような代物ではないのでいい買い物をしたと思ってます。
+            </p>
+              </div>
+            </div>
+          <div class="clear"></div>
+          <div class="image-introduce">
+          <figure class="image"><img src="photos/DSC_0053.JPG" alt="オパール写真" class="jwely-image" width="400" height="400"></figure>
+            <div class="hobby-introduce-text">
+            <p>
+              オパールの写真です。この写真だけ背景が違います。オパールの中にいろんな色が浮かんで見える現象を遊色効果というらしいです。
+              いつ買ったかもいくらで買ったかも忘れてしまいましたが、このオパールは結構遊色効果が強く出ているので好きです。
+              これはただの雑学なのですが、オパールって水を吸うらしいです。だけどもそうすると遊色効果が消えてしまうらしいのが悲しいところ。
+            </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+          </div>
         </div>
       </div>
 
     </div>
-  </div>
     </div>
       <ul>
-        <li>イラスト</li>
+        <li class="clear">イラスト</li>
       </ul>
       <div class="hobby-content">
         <div class="hobby-introduce-text">
           <p>
-           中学生からノートの端等にイラストを描いていました
+           　中学生からノートの端等にイラストを描いていました。最初は中学の部活動のアート部でカービィ等を描いていたのですが、
+            だんだん人も描くようになってきました。現在ではデジタルで気が向いたときに絵を描くか、TRPG用の立ち絵を描いています
+            描くペースは半年に一枚程度なのであまり上手ではありませんが何枚か紹介しようと思います。
           </p>
         </div>
       </div>
@@ -152,24 +193,43 @@
         <div id="collapseTwo" class="accordion-collapse collapse"
              aria-labelledby="headingTwo" data-bs-parent="#accordionTwo">
           <div class="accordion-body">
-            <figure class="image4"><img src="photos/真おんにゃのこ.png" alt="最初に描いたオリキャラちゃん" ></figure>
+            <img src="photos/真おんにゃのこ.png" alt="最初に描いたオリキャラちゃん" >
+            <div class="illustration-introduce">
+            <p>
+              去年の6月くらいに描いたイラストです。多分これが最初に「作品」としてしっかりと完成させたイラストです。
+              今見ると色々と拙い部分が多いですが、今と結構絵柄が違うのでまだ「ああ、そんな時期あったなぁ」という穏やかな気持ちで見ることができます。
+              最初は背景を暗くしようとかは考えていなかったのですが、キャラクターを描き終わった後で周りのエフェクトを足したくなったのでこんな感じの作品になりました。
+            </p>
+            </div>
 
-            <figure class="image5"><img src="photos/影のるりこちゃん.png" alt="肌の色マジックをしてみたかったオリキャラちゃん" width="800" height="666"></figure>
+           　<img src="photos/影のるりこちゃん.png" alt="肌の色マジックをしてみたかったオリキャラちゃん" width="800" height="700">
+            <div class="illustration-introduce">
+              <p>
+                去年の10月くらいに描いたイラストです。これは肌におおよそ肌とは思えない色を使ってみたかったので描きました。
+                肌の色はそこそこなじんでいる気はしていますが、線画を描くと線画の拙さとか、顔のバランスとかがどうしても目についてしまうので
+                あんまり直視はしたくないです。
+              </p>
+            </div>
 
-            <figure class="image6"><img src="photos/オリキャラちゃん１.png" alt="けっこう上手くいったオリキャラちゃん" width="600" height="850"></figure>
+            <figure class="image2"><img src="photos/オリキャラちゃん１.png" alt="けっこう上手くいったオリキャラちゃん" width="600" height="880"></figure>
+            <div class="illustration-introduce">
+              <p>
+
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-<div class="contact">
-  <h2>連絡先</h2>
-  <ul>
-    <li>G-mail:m0a232873d@edu.teu.ac.jp</li>
-    <li>github:<a href="https://github.com/y-haruka0130">Y-haruka0130</a> </li>
-  </ul>
+    <div class="contact">
+      <h2>連絡先</h2>
+  　　 <ul>
+         <li>G-mail:m0a232873d@edu.teu.ac.jp</li>
+         <li>github:<a href="https://github.com/y-haruka0130">Y-haruka0130</a> </li>
+      </ul>
+    </div>
   </div>
   </div>
-
 </body>
 </html>
