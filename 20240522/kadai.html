@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <style>
-    main{
+    .container{
       background-color: #F7F7F7;
     }
     .main-content-background{
@@ -17,8 +17,18 @@
       margin-left: 20px;
       margin-right: 20px;
     }
+    .main{
+      background-color: #F7F7F7;
+    }
     header{
       background-color: #F7F7F7;
+    }
+    .float{
+      float: left;
+      padding: 0 1em 1em 0;
+    }
+    .header-center-back{
+      background-color: #FFFFFF;
     }
   </style>
 </head>
@@ -26,26 +36,46 @@
 <div class="container">
   <header>
     <div class="row">
-    <div class="col-4">
+    <div class="col-5">
       <p><a href="https://donation.yahoo.co.jp/promo/20240101.html?cpt_n=noto2024_20240101&cpt_s=yj_don&cpt_m=uhd&cpt_c=noto2024_20240101_yj_don_uhd_">能登半島地震緊急支援のための活動に寄付のご協力をお願いします</a> </p>
     </div>
-      <div class="col-1"></div>
-      <div class="col-2">
-        <p><a href="https://www.yahoo.co.jp/">Yahoo! JAPAN</a> </p>
-      </div>
-      <div class="col-1">
-        <p><a href="https://support.yahoo-net.jp/PccNews/s/">ヘルプ</a> </p>
-      </div>
       <div class="col-2"></div>
-        <input type="text" name="serch" placeholder="ウェブ検索">
+      <div class="col-2">
+        <p><a href="https://www.yahoo.co.jp/">Yahoo! JAPAN</a>
+        <a href="https://support.yahoo-net.jp/PccNews/s/">ヘルプ</a> </p>
       </div>
+      <div class="col-2">
+        <p><input type="text" name="serch" placeholder="ウェブ検索"></p>
+      </div>
+    </div>
     <div class="row">
-      <div class="headerimage">
+      <div class="header-center-back">
+      <div class="header-image">
+        <div class="col-4">
+          <div class="float">
+        <img src="image.png" alt="画像の代用として灰色一色の画像" width="300" height="60">
+          </div>
+      </div>
+        <div class="col-8">
+        <p> IDでもっと便利に<a href="https://account.edit.yahoo.co.jp/signup?.intl=jp&.done=https%3A%2F%2Fnews.yahoo.co.jp%2Farticles%2Ffa074afe074f844976e7a6fa8633376c0f6ec749&.src=news">新規取得</a><br>
+      　<a href="https://login.yahoo.co.jp/config/login?.src=news&lg=jp&.intl=jp&.done=https%3A%2F%2Fnews.yahoo.co.jp%2Farticles%2Ffa074afe074f844976e7a6fa8633376c0f6ec749">ログイン</a>
+        　<a href="https://rdr.yahoo.co.jp/v1/label=L21lbXBmL21oZC90ZXh0L3BjLzE1NTkxNC8xNjU2NTgvMTQxNzg0Ni8x/p=mempf/d=mempf_redirect_api_log/tk=8dec6df6-7d6e-4085-b834-5afb49ed6c82/ru=aHR0cHM6Ly90YWthcmFiYWtvLnlhaG9vLmNvLmpwLz9zY19lPXltc3RoZHBjX20yY3dpdGhscA/">お買い物がお得になるクーポンがたくさん</a>
+        </p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <input type="text" name="KeyWord" placeholder="キーワードを検索">
+      </div>
+      <div class="col-5"></div>
+      <div class="col-3">
 
       </div>
     </div>
   </header>
-  <main>
+  <div class="main">
     <div class="row mb-6">
       <div class="col-1"></div>
       <div class="col-7">
@@ -215,7 +245,7 @@
       </div>
     </div>
 
-  </main>
+  </div>
   <footer>
 
   </footer>
