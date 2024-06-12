@@ -1,10 +1,440 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>中間課題ホーム</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>備忘録</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <style>
+    .navigation-large{
+      background-color: #3E4651;
+      color: white;
+    }
+    .navigation-small{
+      background-color: #3E4651;
+      color: #FFFFFF;
+    }
+    .large-title{
+      font-family: HG行書体;
+      text-align: center;
+      margin: 5px;
+    }
+    .small-title{
+      font-family: HG行書体;
+      text-align: center;
+      padding-top: 2px;
+    }
+    .main{
+      background-color: lightyellow;
+    }
+    .large-content{
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      background-color: #FFFFFF;
+      border: 1px solid #808080;
+    }
+    .large-content h3{
+      text-align: center;
+      font-family: "UD デジタル 教科書体 NK-B";
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-top: 15px;
+      color: #3a3a3a;
+    }
+    .sidebar{
+      margin-top: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #808080;
+      color: white;
+    }
+    .sidebar h4{
+      font-family: "ＭＳ ゴシック";
+      text-align: center;
+    }
+    .self-introduce{
+      padding-left: 10px;
+      padding-right: -10px;
+    }
+    .my-icon{
+      float: left;
+    }
+    .clear{
+      clear: both;
+      color: #FFFFFF;
+    }
+    .SNSlink{
+      text-align: center;
+    }
+    .SNSlink p{
+      padding-top: 5px;
+      font-size: x-small;
+    }
+    .article-title{
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+    .article-title h6{
+      text-align: center;
+    }
+    .small-content{
+      margin: 4px;
+      background-color: #FFFFFF;
+    }
+    .footer{
+      background-color: #3E4651;
+      color: #FFFFFF;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .small-content h3{
+      text-align: center;
+      padding-top: 15px;
+      font-family: "UD デジタル 教科書体 NK-B";
+      color: #3a3a3a;
+    }
+    .navi-header{
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 0;
+      background-color: #FFFFFF;
+      margin-bottom: -30px;
+    }
+    .button1{
+      text-align: center;
+      padding-right: 10px;
+    }
+    .button2 {
+      text-align: center;
+      padding-left: -10px;
+    }
+    .filled-container{
+      background-color: lightyellow;
+    }
+    .small-content{
+      background-color: white;
+      margin-bottom: -1.5em;
+      margin-top: 20px;
+      margin-right: 1%;
+      margin-left: 1%;
+    }
+    .small{
+      background-color: lightyellow;
+      padding-bottom: 10px;
+    }
+    .small-after{
+      background-color: white;
+      margin-right: 1%;
+      margin-left: 1%;
+    }
+    .small-after h4{
+      font-family: "ＭＳ ゴシック";
+      padding-bottom: 20px;
+      margin-bottom: 0;
+    }
+    .small-introduce{
+      margin-left: 0;
+      padding-bottom: 1em;
+    }
+    .small-my-icon{
+      float: left;
+      margin-left: 1em;
+      margin-right: 1em;
+      padding: -2em 1em 1em 4em;
+    }
+    .small-SNS{
+      text-align: center;
+      padding: 0em 1em -1em 0em;
+    }
+    .SNS-icon{
+      width: 60px;
+      height: 38px;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
+    .SNS-icon2{
+      width: 60px;
+      height: 38px;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
+    .small-articles{
+      margin-bottom: -2em;
+    }
+    .small-articles h5{
+      text-align: center;
+      font-family: "ＭＳ ゴシック";
+    }
+    .small-articles h6{
+      text-align: center;
+      font-family: "ＭＳ ゴシック";
+    }
+    .small-advertisement{
+      text-align: center;
+    }
+    .advertisement-img1{
+      text-align: center;
+      width: 30%;
+    }
+    .advertisement-img2{
+      text-align: center;
+      width: 50%;
+    }
+  </style>
 </head>
 <body>
+<div class="container d-none d-md-block">
+  <div class="header">
+    <div class="navigation-large">
+       <div class="row">
+         <div class="col d-none d-md-block">
+           <div class="large-title">
+             <h2>備忘録</h2>
+           </div>
+         </div>
+       </div>
+    </div>
 
+    <div class="pickup-content">
+      <div class="row">
+        <div class="col d-none d-md-block">
+          <p>ピックアップ</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="large">
+      <div class="row">
+        <div class="col-9 d-none d-md-block">
+          <div class="large-content">
+            <h3>色彩検定まで二週間切りました</h3>
+            <div class=row>
+              <div class="col-1"></div>
+              <div class="col-10">
+                <hr>
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <p>本文</p>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3 d-none d-md-block">
+          <div class="sidebar">
+            <div class="self-introduce">
+              <br>
+              <h4>自己紹介</h4>
+              <hr>
+              <div class="my-icon">
+                <h6><img src="photo/ume.JPG" alt="梅のアイコン" width="50%" height="50%">　　Y.haruka</h6>
+                <div class="clear"></div>
+                <p>東京工科大学メディア学部2年</p>
+              </div>
+            </div>
+            <div class="SNSlink">
+              <br>
+              <h4>各種SNS</h4>
+              <hr>
+              <div class="row">
+                <div class="col-4">
+                  <img src="photo/logo-white.png" alt="Xのロゴ" width="38px" height="38px">
+                  <p>X(旧Twitter)</p>
+                </div>
+                <div class="col-4">
+                  <img src="photo/Facebook_Logo_Primary.png" alt="Facebookのロゴ" width="38px" height="38px">
+                  <p>Facebook</p>
+                </div>
+                <div class="col-4">
+                  <img src="photo/Instagram_Glyph_Gradient.png" alt="Instagramのロゴ" width="38px" height="38px">
+                  <p>Instagram</p>
+                </div>
+              </div>
+            </div>
+              <h4>過去の記事</h4>
+              <hr>
+              <div class="article-title">
+                <h6>サークル</h6>
+                <hr>
+                <ul>
+                  <li>うたあわせ楽しかった！</li>
+                  <li>魔法少女って...深いなぁ...</li>
+                  <li>立ち絵描き終わらない</li>
+                  <li>夏休みの予定が着々と埋まってきた</li>
+                </ul>
+                <hr>
+                <h6>勉強</h6>
+                <hr>
+                <ul>
+                  <li>専門演習、何とるか悩む</li>
+                  <li>提出期限一週間遅かった</li>
+                  <li>何となく分かってきた気がしなくもない</li>
+                  <li>手を付けずにもう一か月が経ちました</li>
+                </ul>
+                <hr>
+                <h6>日常</h6>
+                <hr>
+                <ul>
+                  <li>片付けめんどい</li>
+                  <li>神引きした</li>
+                  <li>アルレッキーノ最強！！！</li>
+                </ul>
+            </div>
+            <div class="advertisement">
+              <h4>広告</h4>
+              <hr>
+              <img src="photo/img01.jpg" alt="広告代わりのこうかとん1" width="100%" height="100%">
+              <div>
+                <br>
+              </div>
+              <img src="photo/img02.png" alt="広告代わりのこうかとん2" width="100%" height="100%">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>🄫　2024 Y.haruka</p>
+    </div>
+  </div>
+</div>
+<div class="filled-container sm-block d-md-none">
+  <div class="navigation-small">
+    <div class="row">
+      <div class="col sm-block d-md-none">
+          <div class="small-title">
+            <h4>備忘録</h4>
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="navi-header">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-2">
+          <div class="button1">
+            <p>ホーム</p>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="button2">
+            <p>HP</p>
+          </div>
+        </div>
+      </div>
+  </div>
+<div class="row">
+  <div class="small-content">
+    <div class="small">
+      <div class="row">
+        <div class="col　sm-block d-md-none">
+          <div class="small-content">
+            <h3>色彩検定まで2週間切りました</h3>
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-10">
+                <hr>
+                <div class="small-main">
+                  <p>本文</p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="small-after">
+        <div class="small-introduce">
+          <div>
+            <hr>
+            <br>
+          </div>
+          <img src="photo/ume.JPG" alt="梅のアイコン" class="small-my-icon" width="96px" height="96px">
+          <h4>自己紹介</h4>
+          <h6>Y.haruka</h6>
+          <p>東京工科大学メディア学部2年</p>
+          <div class="clear"></div>
+        </div>
+        <hr>
+          <div class="small-SNS">
+            <h6><img src="photo/logo-black.png" alt="Xのアイコン" class="SNS-icon" width="38px" height="38px">X(旧Twitter)
+              <img src="photo/Facebook_Logo_Primary.png" alt="Facebookのアイコン" class="SNS-icon" width="38px" height="38px">  Facebook
+              <img src="photo/Instagram_Glyph_Gradient.png" alt="Instagramのアイコン" class="SNS-icon2" width="38px" height="38px">  Instagram</h6>
+          </div>
+        <hr>
+        <div class="small-articles">
+          <h5>過去の記事</h5>
+          <hr>
+          <div class="row">
+            <div class="col-4">
+              <h6>サークル</h6>
+              <hr>
+              <ul>
+                <li>うたあわせ楽しかった！</li>
+                <li>魔法少女って...深いなぁ...</li>
+                <li>立ち絵描き終わらない</li>
+                <li>夏休みの予定が着々と埋まってきた</li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h6>勉強</h6>
+              <hr>
+              <ul>
+                <li>専門演習、何とるか悩む</li>
+                <li>提出期限一週間遅かった</li>
+                <li>何となく分かってきた気がしなくもない</li>
+                <li>手を付けずにもう一か月が経ちました</li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h6>日常</h6>
+              <hr>
+              <ul>
+                <li>片付けめんどい</li>
+                <li>神引きした</li>
+                <li>アルレッキーノ最強！！！</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="small-advertisement">
+          <h4>広告</h4>
+          <hr>
+          <div class="row">
+            <div class="col">
+              <img src="photo/img02.png" alt="広告代わりのこうかとん" class="advertisement-img1">
+            </div>
+            <div class="col">
+              <img src="photo/img01.jpg" alt="広告代わりのこうかとん" class="advertisement-img2">
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <p>🄫　2024 Y.haruka</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
 </html>
