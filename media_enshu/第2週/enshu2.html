@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./css/w3.css">
+        <script type="text/javascript" src="js/vue.dev.js"></script>
+        <title>配列の情報追加・削除</title>
+    </head>
+    <body>
+        <!-- Vue.jsで操作する対象としてid付け（名前は任意） -->
+        <div id="vue" class="w3-container">
+            <h1>Vue.jsでタスク管理</h1>
+            <!-- タスク表示用テーブル -->
+            <!-- 装飾にW3.cssのクラス群を活用 -->
+            <table class="w3-table-all w3-margin-top">
+                <tr>
+                    <!-- 演習課題：重要度列を追加 -->
+                    <th>重要度</th>
+                    <th>タスク名</th>
+                    <th>締切</th>
+                </tr>
+                <!-- tasks配列の中身分繰り返しながら行を表示 -->
+                <tr v-for='task in tasks'>
+                    <!-- 演習課題：重要度列を追加・level情報を表示 -->
+                    <td>{{task.level}}</td>
+                    <!-- 次の二列はそのまま表示 -->
+                    <td>{{task.name}}</td>
+                    <td>{{task.date}}</td>
+                </tr>
+            </table>
+            <hr>
+            <!-- 新規タスク追加 -->
+            <!-- W3.cssの横並び機能を使用 -->
+            <div class="w3-row">
+                <!-- 演習課題：w3-quarterクラスで入力欄をひとつ追加（level情報） -->
+                <div class="w3-col w3-quarter w3-padding">
+                    重要度<br>
+                    <input type="radio" name="color" value="最高" class="w3-radio" v-model='newtask.level'> 最高
+                    <input type="radio" name="color" value="高" class="w3-radio" v-model='newtask.level'> 高
+                    <input type="radio" name="color" value="中" class="w3-radio" v-model='newtask.level'> 中
+                    <input type="radio" name="color" value="低" class="w3-radio" v-model='newtask.level'> 低
+                </div>
+                <!-- w3-quarterクラスにすることで重要度・名前・締切・追加ボタンの4つを横並びにする -->
+                <!-- 演習課題：w3-quarterクラスに変更 -->
+                <div class="w3-col w3-quarter w3-padding">
+                    <!-- newtaskのnameと対応 -->
+                    <input type="text" class="w3-input w3-border" v-model='newtask.name' placeholder="タスク名">
+                </div>
+                <!-- 演習課題：w3-quarterクラスに変更 -->
+                <div class="w3-col w3-quarter w3-padding">
+                    <!-- newtaskのdateと対応 -->
+                    <input type="text" class="w3-input w3-border" v-model='newtask.date' placeholder="締切">
+                </div>
+                <!-- 演習課題：w3-quarterクラスに変更 -->
+                <div class="w3-col w3-quarter w3-padding">
+                    <!-- ボタンをクリックでタスク追加を実行 -->
+                    <input type="button" class="w3-btn-block" @click='addTask()' value="新規タスク追加">
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // Vue.js開始>
+            new Vue({
+                // ページ内のidがvueであるブロックを操作
+                el: '#vue',
+                // 利用するデータ
+                data: {
+                    // タスク用配列
+                    tasks: [
+                        // 演習課題：level情報の追加（しなくても動きはするが合わせておく）
+                        {
+                            "level":"高",
+                            "name": "履修登録", 
+                            "date": "2023/4/19"
+                        }, 
+                        {
+                            "level":"高",
+                            "name": "Webデザイン最終課題", 
+                            "date": "2023/4/28"
+                        }
+                    ], 
+                    // 演習課題："level"情報の追加
+                    newtask: { "level": "", "name": "", "date": ""}
+                }, 
+                // メソッド部分（目的に応じた処理を行う）
+                methods: {
+                    // タスクを追加
+                    addTask: function(){
+                        // tasks配列にnewtaskの値を入れて追加
+                        // 演習課題："level"情報の追加
+                        this.tasks.push({"level":this.newtask.level, "name": this.newtask.name, "date": this.newtask.date});
+                        // newtaskの値を消す
+                        this.newtask.level= "";
+                        this.newtask.name = "";
+                        this.newtask.date = "";
+                        // 演習課題：消す対象も増えるので注意
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

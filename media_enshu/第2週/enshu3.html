@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/w3.css">
+  <script type="text/javascript" src="js/vue.dev.js"></script>
+  <title>演習３</title>
+</head>
+<body>
+<!-- Vue.jsで操作する対象としてid付け（名前は任意） -->
+<div id="vue" class="w3-container">
+  <h1>Vue.jsでタスク管理</h1>
+  <!-- タスク表示用テーブル -->
+  <!-- 装飾にW3.cssのクラス群を活用 -->
+
+  <div class="w3-row">
+    <div class="w3-col hal w3-padding">
+      並び替え<br>
+      <select class="w3-select w3-border" v-model="sortKey" @change="sortTasks">
+        <option value="level">重要度</option>
+        <option value="date">締切</option>
+      </select>
+  </div>
+  </div>
+
+  <table class="w3-table-all w3-margin-top">
+    <tr>
+      <!-- 演習課題：重要度列を追加 -->
+      <th>重要度</th>
+      <th>タスク名</th>
+      <th>締切</th>
+      <th>完了</th>
+      <th>削除</th>
+    </tr>
+    <!-- tasks配列の中身分繰り返しながら行を表示 -->
+    <tr v-for='task in tasks' :class='task.done=="完了"?"w3-dark-gray":""'>
+      <!-- 左二列は単に表示 -->
+      <td>{{task.level}}</td>
+      <td>
+        {{task.name}}
+        <!--
+            タスクが完了済みならば完了済みと追記
+            v-ifを使うことで条件に一致した場合のみ表示される
+         -->
+        <span v-if='task.done == "完了"' class="done">完了済</span>
+      </td>
+      <td>{{task.date}}</td>
+      <!-- 三列目に完了ボタンを設置 -->
+      <td>
+        <!-- ボタンを表示しクリックイベントに完了メソッドを追加（taskを渡す） -->
+        <input v-if='task.done == "完了"' type="button" class="w3-btn" @click='switchDone(task)' value="未完">
+        <!-- v-elseを直後に置けばv-ifに合致しなかった場合の処理になる -->
+        <input v-else type="button" class="w3-btn" @click='switchDone(task)' value="完了">
+        <!-- v-else-ifもあるので複雑な処理も可能 -->
+      </td>
+
+      <!-- 四列目に削除ボタンを設置 -->
+      <td>
+        <!-- ボタンを表示しクリックイベントに削除メソッドを追加（taskを渡す） -->
+        <input type="button" class="w3-btn" @click='removeTask(task)' value="タスク削除">
+      </td>
+    </tr>
+  </table>
+  <hr>
+  <!-- 新規タスク追加 -->
+  <!-- W3.cssの横並び機能を使用 -->
+  <div class="w3-row">
+    <!-- 演習課題：w3-quarterクラスで入力欄をひとつ追加（level情報） -->
+    <div class="w3-col w3-quarter w3-padding">
+      重要度<br>
+      <input type="radio" name="level" value="最高" class="w3-radio" v-model='newtask.level'> 最高
+      <input type="radio" name="level" value="高" class="w3-radio" v-model='newtask.level'> 高
+      <input type="radio" name="level" value="中" class="w3-radio" v-model='newtask.level'> 中
+      <input type="radio" name="level" value="低" class="w3-radio" v-model='newtask.level'> 低
+    </div>
+    <!-- w3-quarterクラスにすることで重要度・名前・締切・追加ボタンの4つを横並びにする -->
+    <!-- 演習課題：w3-quarterクラスに変更 -->
+    <div class="w3-col w3-quarter w3-padding">
+      <!-- newtaskのnameと対応 -->
+      <input type="text" class="w3-input w3-border" v-model='newtask.name' placeholder="タスク名">
+    </div>
+    <!-- 演習課題：w3-quarterクラスに変更 -->
+    <div class="w3-col w3-quarter w3-padding">
+      <!-- newtaskのdateと対応 -->
+      <input type="text" class="w3-input w3-border" v-model='newtask.date' placeholder="締切">
+    </div>
+    <!-- 演習課題：w3-quarterクラスに変更 -->
+    <div class="w3-col w3-quarter w3-padding">
+      <!-- ボタンをクリックでタスク追加を実行 -->
+      <input type="button" class="w3-btn-block" @click='addTask()' value="新規タスク追加">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    // Vue.js開始>
+    new Vue({
+        // ページ内のidがvueであるブロックを操作
+        el: '#vue',
+        // 利用するデータ
+        data: {
+            tasks: [],
+        // 演習課題："level"情報の追加
+            newtask: { "level": "", "name": "", "date": ""},
+            sortKey: "level"
+        },
+        created: function(){
+            // 初期化の確認
+            this.init();
+            // データをロード
+            this.loadTasks();
+
+            this.sortTasks();
+        },
+        // メソッド部分（目的に応じた処理を行う）
+        methods: {
+            // 初期化の確認
+            init: function(){
+                // localStorage内にtasksという名前で中身があるか確認
+                if(localStorage.getItem("tasks") == undefined){
+                    // なければ空の配列（文字列）を保存
+                    localStorage.setItem("tasks", "[]");
+                }
+            },
+            // データのロード
+            loadTasks: function(){
+                // tasksという名前でローカルストレージから読み出し
+                // 文字列で保存されているのでJSON.parseをしてthis.tasksにセット
+                this.tasks = JSON.parse(localStorage.getItem("tasks"));
+            },
+            // データの保存
+            saveTasks: function(){
+                // tasksという名前でローカルストレージに保存
+                // 文字列で保存するのでthis.tasksをJSON.stringify()してセット
+                localStorage.setItem("tasks", JSON.stringify(this.tasks));
+            },
+            // タスクを追加
+            addTask: function(){
+                // tasks配列にnewtaskの値を入れて追加（doneは未完でセット）
+                this.tasks.push({"level":this.newtask.level, "name": this.newtask.name, "date": this.newtask.date, "done": "未完"});
+                // newtaskの値を消す
+                this.newtask.name = "";
+                this.newtask.date = "";
+                this.newtask.level= "";
+
+                // タスクを保存
+                this.saveTasks();
+
+                this.sortTasks();
+            },
+            // 完了／未完の切り替え
+            switchDone: function(task){
+                // 未完なら完了にする
+                if(task.done == "未完"){
+                    task.done = "完了";
+                    // そうでないなら未完にする
+                }else{
+                    task.done = "未完";
+                }
+
+                // タスクを保存
+                this.saveTasks();
+
+                this.sortTasks();
+            },
+            // タスクの削除
+            removeTask: function(task){
+                // 送られたタスクが配列の中で何番目かを取得
+                var index = this.tasks.indexOf(task);
+                // tasks配列のindex番目から1つ削除
+                this.tasks.splice(index, 1);
+
+                // タスクを保存
+                this.saveTasks();
+                this.sortTasks();
+            },
+            sortTasks: function() {
+                if (this.sortKey === "level") {
+                    const levelOrder = {"最高": 1, "高": 2, "中": 3, "低": 4};
+                    this.tasks.sort((a, b) => levelOrder[a.level] - levelOrder[b.level]);
+                } else if (this.sortKey === "date") {
+                    this.tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

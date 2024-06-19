@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/vue.dev.js"></script>
+        <title>配列の情報でリスト生成</title>
+    </head>
+    <body>
+        <!-- Vue.jsで操作する対象としてid付け（名前は任意） -->
+        <div id="vue">
+            <!-- data内のlistというJSONからitemという名前で要素を一つずつ取得し繰り返し表示 -->
+            <div v-for='item in list'>
+                <!-- {{}}で囲んだ中に取得した要素の情報をセットすると表示可能 -->
+                <h1>{{item.header}}</h1>
+                <!-- 入れ子になっている要素も同じように一つずつ取得可能 -->
+                <p v-for='text in item.texts'>{{text}}</p>
+            </div>
+            <div>
+                <!-- imgタグのsrc属性に値をバインド -->
+                <img v-for='image in imgs' :src='image' style="width: 400px; display: block;">
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            // Vue.js開始
+            new Vue({
+                // ページ内のidがvueであるブロックを操作
+                el: '#vue',
+                // 利用するデータ
+                data: {
+                    // リスト用配列
+                    list: [
+                        {"header":"見出し１", "texts": ["文章１", "文章２"]},
+                        {"header":"見出し２", "texts": ["文章１", "文章２", "文章３", "文章４", "文章５"]},
+                        {"header":"見出し３", "texts": ["文章１", "文章２", "文章３"]}
+                    ], 
+                    // 画像リスト用配列
+                    imgs: [
+                        "img/name.jpg",
+                        "img/img01.jpg",
+                        "img/img02.png",
+                        "img/img03.png",
+                        "img/img04.png",
+                        "img/img05.png",
+                        "img/img06.png",
+                        "img/img07.png",
+                        "img/img08.png",
+                        "img/img09.png",
+                        "img/img10.png",
+                        "img/img11.png"
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>

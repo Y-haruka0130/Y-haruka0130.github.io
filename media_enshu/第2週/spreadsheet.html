@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>スプレッドシートからの情報取得</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="./js/vue.dev.js"></script>
+    <script type="text/javascript" src="js/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/w3.css">
+    <style>
+      .text {
+        user-select: none;
+        cursor: default;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="vue">
+      <h1>スプレッドシートからの情報取得</h1>
+      <!-- ここでデータの表示をする -->
+      <table class="w3-table-all w3-margin" style="width: 70%;">
+        <tr>
+          <th>行き先</th>
+          <th>キャンパス発</th>
+          <th>行き先発</th>
+          <th>キャンパス着</th>
+        </tr>
+        <tr v-for='row in data'>
+          <td>{{row.stationname}}</td>
+          <td>{{row.campus}}</td>
+          <td>{{row.station}}</td>
+          <td>{{row.arrive}}</td>
+        </tr>
+      </table>
+    </div>
+    <script type="text/javascript">
+      new Vue({
+          el: '#vue',
+          data: {
+            data: []
+          }, 
+          // ページが準備完了次第実行
+          created: function(){
+            // データを取得
+            this.getData();
+          }, 
+          methods: {
+            // データ取得
+            getData: function(){
+              axios.get('https://sheets.googleapis.com/v4/spreadsheets/1vybLID0_Y2Z1PE9VPmLDLhdn7g65VAPGtO6s5yqWfrI/values/bustime?key=ここにAPIキーを貼る')
+              .then( ( res ) => {
+                // 一行目を取得
+                var header = res.data.values.shift();
+                // 以降の行を一つずつ読み出しながら
+                res.data.values.forEach(row => {
+                  // 新しい行の情報
+                  var newrow = {};
+                  // ヘッダー行の列の数だけ繰り返し
+                  for(var i = 0; i < header.length; i++){
+                    // 値を空で初期化
+                    var value = "";
+                    // 中身があれば代入
+                    if(row[i] != undefined) value = row[i];
+                    // 連想配列として保存
+                    newrow[header[i]] = value;
+                  }
+                  // データ配列に追加
+                  this.data.push(newrow);
+                });
+                // 結果データを表示
+                console.log(this.data);
+              } )
+              .catch( ( res ) => {
+                console.error( res );
+              } );
+            }
+          }
+      });
+    </script>
+  </body>
+</html>

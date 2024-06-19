@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>プレーンjavascriptの書き方</title>
+    </head>
+    <body>
+        <!-- 
+            HTMLのコメントアウト
+            タグ/閉じタグのように間に複数行書ける
+        -->
+        <!-- もちろん一行でもいい -->
+        <h1>プレーンjavascriptの書き方</h1>
+        <p>javascriptによるページ内容書き換えの確認</p>
+
+        <h1>自動書き換え</h1>
+        <p id="autorewrite">ここは自動で書き換え</p>
+
+        <h1>クリックイベントによる書き換え</h1>
+        <input id="button" type="button" value="書き換える">
+        <p id="buttonrewrite">クリック時にここのスタイルを書き換え</p>
+        
+        <!-- bodyタグ末尾にscriptタグを書く -->
+        <script type="text/javascript">
+            // ここにコードを書く
+            // scriptタグ内はコードとして解釈されるのでコメントアウトもこの形
+
+            // idがautorewriteな要素を取得し内容を書き換え
+            document.getElementById('autorewrite').innerHTML = "書き換え済み";
+            // 完了後コンソールに出力
+            console.log('自動書き換え完了');
+
+            // rewriteという名前でファンクションを作成
+            function rewrite(){
+                // idがbuttonrewriteな要素を取得し内容を書き換え
+                document.getElementById('buttonrewrite').style.color = "red";
+                // 完了後アラートを出す
+                alert("クリックで書き換え");
+            }
+
+            // idがbuttonな要素を取得しクリックイベントを追加（rewriteファンクション）
+            document.getElementById('button').onclick = rewrite;
+            
+        </script>
+    </body>
+</html>

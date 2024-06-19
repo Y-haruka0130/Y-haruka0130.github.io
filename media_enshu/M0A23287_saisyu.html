@@ -37,26 +37,25 @@
       border: 1px solid #3E4651;
       background-color: #F7F7F7;
     }
-    .navi{
-      background-color: lightyellow;
-      border: #b4aa50;
+    .list p{
+      text-align: left;
     }
   </style>
 </head>
 <body>
 <div id="vue" class="w3-content">
   <div class="header">
-    <h4>好きなお菓子紹介</h4>
+    <h2>好きなスイーツ(?)紹介</h2>
   </div>
   <div class="content">
     <div class="w3-col w3-quarter w3-padding"></div>
     <div class="w3-col w3-half w3-padding">
       <div class="navi">
-        <h4>好きなお菓子は？</h4>
+        <h4>好きなスイーツ目次</h4>
         <div class="w3-col w3-col.l8 w3-padding">
           <ul>
-            <li><a href="M0A23287_saisyu.html#kasi1">スーパー、コンビニで買えるお菓子</a></li>
-            <li><a href="M0A23287_saisyu.html#kasi2">お店で買うお菓子</a></li>
+            <li><a href="M0A23287_saisyu.html#kasi1">スーパー、コンビニで買えるスイーツ</a></li>
+            <li><a href="M0A23287_saisyu.html#kasi2">お店で買うスイーツ</a></li>
             <li><a href="M0A23287_saisyu.html#form">投稿フォーム</a></li>
           </ul>
         </div>
@@ -70,40 +69,40 @@
     <div class="kasi1">
       <div class="w3-col w3-quarter w3-padding"></div>
       <div class="w3-col w3-half w3-padding">
-        <h4 id="kasi1">スーパー・コンビニで買えるお菓子</h4>
-        <p>スーパーやコンビニで買えるお勧めのお菓子です</p>
+        <h4 id="kasi1">スーパー・コンビニで買えるスイーツ</h4>
       </div>
       <div class="clear"></div>
       <div class="w3-col w3-third w3-padding" v-for="item in list1">
         <div class="list">
         <img :src='item.img' style="width: 300px">
-        <h6>{{item.name}}</h6>
+        <h5>{{item.name}}</h5>
         <hr>
         <ul>
-          <li>値段  {{item.price}}円</li>
-          <li>紹介文</li>
+          <li>値段： {{item.price}}</li>
         </ul>
+          <h6>説明</h6>
         <p>{{item.text}}</p>
           <input type="button" class="w3-btn" @click='removeTask(item, selectedList)' value="削除">
       </div>
     </div>
     </div>
     <div class="clear"></div>
+    <br>
     <div class="kasi2">
       <div class="w3-col w3-quarter w3-padding"></div>
       <div class="w3-col w3-half w3-padding">
-        <h4 id="kasi2">お店で買うお菓子</h4>
+        <h4 id="kasi2">お店で買うスイーツ</h4>
       </div>
       <div class="clear"></div>
       <div class="w3-col w3-third w3-padding" v-for="item in list2">
         <div class="list">
         <img :src='item.img' style="width: 300px">
-        <h6>{{item.name}}</h6>
+        <h5>{{item.name}}</h5>
         <hr>
         <ul>
-          <li>値段  {{item.price}}円</li>
-          <li>紹介文</li>
+          <li>値段：{{item.price}}</li>
         </ul>
+          <h6>説明</h6>
         <p>{{item.text}}</p>
           <input type="button" class="w3-btn" @click='removeTask(item, selectedList)' value="削除">　
       </div>
@@ -119,10 +118,10 @@
         <ul>
           <li>
             <input type="radio" id="list1" value="list1" v-model="selectedList">
-            <label for="list1">スーパー、コンビニで買えるお菓子</label></li>
+            <label for="list1">スーパー、コンビニで買えるスイーツ</label></li>
           <li>
             <input type="radio" id="list2" value="list2" v-model="selectedList">
-            <label for="list2">スーパー、コンビニで買えるお菓子</label>
+            <label for="list2">お店で買うスイーツ</label>
           </li>
           <li><input type="text" class="w3-input w3-border" v-model='newtask.name' placeholder="商品名"></li>
           <li><input type="text" class="w3-input w3-border" v-model='newtask.price' placeholder="商品の値段"></li>
@@ -136,39 +135,13 @@
   <div class="clear"></div>
 </div>
 <script type="text/javascript">
-    // Vue.js開始
+    // Vue.js開始"price
     new Vue({
         el: '#vue',
         data: {
-            list1: [
-                {
-                    "name":"スーパーカップバニラ",
-                    "price": "172円",
-                    "img": "path_to_image1.jpg", // 適切な画像パスに修正
-                    "text": "a"
-                },
-                {
-                    "name":"高",
-                    "price": "Webデザイン最終課題",
-                    "img": "path_to_image2.jpg", // 適切な画像パスに修正
-                    "text":"b"
-                }
-            ],
-            list2: [
-                {
-                    "name":"ポンデリング",
-                    "price": "172円",
-                    "img": "path_to_image3.jpg", // 適切な画像パスに修正
-                    "text": "a"
-                },
-                {
-                    "name":"高",
-                    "price": "Webデザイン最終課題",
-                    "img": "path_to_image4.jpg", // 適切な画像パスに修正
-                    "text":"b"
-                }
-            ],
-            newtask: { "name": "", "img": "", "text": "","price":""},
+            list1: [],
+            list2: [],
+            newtask: { "name": "", "img": "", "text": "",":""},
             selectedList: 'list1',  // デフォルトの選択
             lists: []
         },

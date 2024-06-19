@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/vue.dev.js"></script>
+        <title>配列の情報でリスト生成</title>
+        <style>
+            div {
+                margin-bottom: 0.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Vue.jsで操作する対象としてid付け（名前は任意） -->
+        <div id="vue">
+            <!-- data内のlist1というJSONからitemという名前で要素を一つずつ取得し繰り返し表示 -->
+            <div v-for='item in list1'>
+                <!-- {{}}で囲んだ中に取得した要素の情報をセットすると表示可能 -->
+                <div>{{item}}</div>
+            </div>
+            <!-- 区切り用の水平線 -->
+            <hr>
+
+            <!-- data内のlist2というJSONからitemという名前で要素を一つずつ取得し繰り返し表示 -->
+            <div v-for='item in list2'>
+                <!-- {{}}で囲んだ中に取得した要素の情報をセットすると表示可能 -->
+                <div>
+                    {{item.id}} {{item.name}}<br>
+                    出身：{{item.from}}
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            // Vue.js開始
+            new Vue({
+                // ページ内のidがvueであるブロックを操作
+                el: '#vue',
+                // 利用するデータ
+                data: {
+                    // リスト用配列1
+                    list1: [
+                        "M0A23287",
+                        "M0A23275",
+                        "M0A23267",
+                        "M0A23281"
+                    ], 
+                    // リスト用配列2
+                    list2: [
+                        {"name":"山之井遥珂", "id": "M0A23287", "from": "東京"},
+                        {"name":"矢島芽衣", "id": "M0A23275", "from": "東京"},
+                        {"name":"宮沢智大", "id": "M0A23267", "from": "埼玉"},
+                        {"name":"山内凌太", "id": "M0A23281", "from": "神奈川"}
+                    ]
+                    // 今回はこれだけだが更に複数使うことも可能
+                }
+            });
+        </script>
+    </body>
+</html>

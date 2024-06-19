@@ -1,0 +1,43 @@
+
+div {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin: 0px;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.header {
+    background: green;
+}
+
+.mainvisual {
+    background: orange;
+}
+
+.navigation {
+    background: gold;
+}
+
+.contentswrap {
+    padding: 0px;
+}
+
+.sidebar {
+    background: royalblue;
+    float: left;
+    width: 30%;
+    height: 400px;
+}
+
+.main {
+    background: skyblue;
+    float: left;
+    width: 70%;
+    height: 400px;
+}
+
+.footer {
+    background: green;
+}

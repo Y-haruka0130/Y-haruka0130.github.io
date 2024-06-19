@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./css/w3.css">
+        <script type="text/javascript" src="js/vue.dev.js"></script>
+        <script type="text/javascript" src="js/md5.js"></script>
+        <title>MD5アルゴリズムでのハッシュ化</title>
+    </head>
+    <body>
+        <!-- Vue.jsで操作する対象としてid付け（名前は任意） -->
+        <div id="vue" class="w3-container">
+            <h1>MD5アルゴリズムでのハッシュ化</h1>
+            <!-- 結果表示用テーブル -->
+            <!-- 装飾にW3.cssのクラス群を活用 -->
+            <table class="w3-table-all w3-margin-top">
+                <tr>
+                    <th>元の値</th>
+                    <th>ハッシュ値1</th>
+                    <th>ハッシュ値2</th>
+                </tr>
+                <!-- values配列の中身分繰り返しながら行を表示 -->
+                <tr v-for='hash in values'>
+                    <td>{{hash.key}}</td>
+                    <td>{{hash.value1}}</td>
+                    <td>{{hash.value2}}</td>
+                </tr>
+            </table>
+            <hr>
+            <!-- 新規ハッシュ追加 -->
+            <!-- W3.cssの横並び機能を使用 -->
+            <div class="w3-row">
+                <div class="w3-col w3-half w3-padding">
+                    <!-- newkeyと対応 -->
+                    <input type="text" class="w3-input w3-border" v-model='newkey' placeholder="元の値">
+                </div>
+                <div class="w3-col w3-half w3-padding">
+                    <!-- ボタンをクリックでハッシュ追加を実行 -->
+                    <input type="button" class="w3-btn-block" @click='addKey()' value="新規値追加">
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // Vue.js開始>
+            new Vue({
+                // ページ内のidがvueであるブロックを操作
+                el: '#vue',
+                // 利用するデータ
+                data: {
+                    // 元の値用配列
+                    keys: [
+                    ], 
+                    newkey: ""
+                }, 
+                // dataの値を元に計算して（dataは変更せずに）表示形式を変更できる
+                // HTML内でdataの値と同じように利用可能
+                computed: {
+                    values: function(){
+                        // 先に配列を生成
+                        var values = [];
+                        // 入力済みの値の数だけ繰り返し
+                        for(var key of this.keys){
+                            // keyを入れてvalue1・value2という名前で1回ハッシュ化
+                            var value1 = CybozuLabs.MD5.calc(key);
+                            var value2 = CybozuLabs.MD5.calc(key);
+                            // 2023回繰り返しながら
+                            for(var i = 0; i < 2023; i++){
+                                // 100回に1回（100で割った余りが0の時）value2にSaltと追記
+                                if(i % 100 == 0){
+                                    value2 = value2 + "Salt";
+                                }
+                                // value2を入れて再度ハッシュ化
+                                value2 = CybozuLabs.MD5.calc(value2);
+                            }
+                            // 結果用配列にそれぞれ追加
+                            values.push({"key": key, "value1": value1, "value2": value2});
+                        }
+                        // returnすることでHTML中で使用可能になる
+                        return values;
+                    }
+                }, 
+                // メソッド部分（目的に応じた処理を行う）
+                methods: {
+                    // ハッシュを追加
+                    addKey: function(){
+                        // keys配列にnewkeyの値を入れて追加
+                        this.keys.push(this.newkey);
+                        // newkeyの値を消す
+                        this.newkey = "";
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

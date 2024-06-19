@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>入力フォーム例</title>
+        <link rel="stylesheet" href="./css/w3.css">
+    </head>
+    <body>
+        <div class="w3-container">
+            <h1>入力フォーム例</h1>
+        </div>
+        <div class="w3-container w3-margin">
+            テキスト入力フォーム<br>
+            type=text<br>
+            <input type="text" placeholder="type=text" value="デフォルト値" class="w3-input w3-border"><br>
+            type=password<br>
+            <input type="password" placeholder="パスワード" class="w3-input w3-border"><br>
+            type=tel<br>
+            <input type="tel" class="w3-input w3-border"><br>
+            type=email<br>
+            <input type="email" class="w3-input w3-border"><br>
+            type=number<br>
+            <input type="number" class="w3-input w3-border"><br>
+            type=color<br>
+            <input type="color"><br>
+            スライダー<br>
+            <input type="range" min="0" max="360" step="1" class="w3-input w3-border">
+            <hr>
+            テキストエリア<br>
+            <textarea rows="3" class="w3-input w3-border">rows=3で3行のテキストエリア</textarea>
+            <hr>
+            ラジオボタン<br>
+            <input type="radio" name="color" value="red" class="w3-radio"> 赤
+            <input type="radio" name="color" value="white" class="w3-radio"> 白
+            <input type="radio" name="color" value="yellow" class="w3-radio"> 黄色
+            <hr>
+            チェックボックス<br>
+            <input type="checkbox" name="lock" value="title" class="w3-check"> タイトル<br>
+            <input type="checkbox" name="lock" value="authors" class="w3-check"> 著者
+            <hr>
+            セレクトボックス<br>
+            <select class="w3-select w3-border">
+                <option value="1">No.1</option>
+                <option value="2">No.2</option>
+                <option value="3">No.3</option>
+                <option value="4">No.4</option>
+            </select>
+        </div>
+    </body>
+</html>

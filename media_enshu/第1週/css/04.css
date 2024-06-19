@@ -1,0 +1,12 @@
+div {
+    background: lightskyblue;
+    border: 1px dashed black;
+    border-left: solid 5px red;
+    font-size: 1.5em;
+    margin: 1em;
+    padding: 1em;
+}
+
+div > p {
+    color: red;
+}

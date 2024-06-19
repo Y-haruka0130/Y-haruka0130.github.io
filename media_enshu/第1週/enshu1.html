@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>divタグを飾ってみる</title>
+        <style>
+            /* div要素全部を装飾 */
+            div {
+                color: #3E4651;
+            }
+
+            /* enshuクラスの装飾 */
+            .enshu {
+                background-color: #ADD8E6;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                margin-left: 3px;
+                border-left: 5px solid gray;
+                width: 63%;
+            }
+
+            /* titleクラスの装飾 */
+            .title {
+                background-color: #3E4651;
+                color: white;
+                font-size: small;
+                border-left: 5px solid red;
+                margin: 1em;
+                width: 50%;
+            }
+
+            /* anotherクラス内のtitleクラスの装飾 */
+            .another .title {
+                background-color: beige;
+                color: darkslateblue;
+                border: 5px dashed darkred;
+                text-align: center;
+            }
+
+            /* idがid01の要素の装飾 */
+            #id01 h1{
+                background-color: ghostwhite;
+                border: 2px solid #444B53;
+                width: 50%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="img/renshu.png">
+        <div class="enshu">
+            　上の画像のように飾り付けてみる（左枠はグレーで5px、内部余白は1文字分）
+        </div>
+        <div>
+            <div class="title">
+                <h1>　見出し1</h1>
+            </div>
+            <p>上の見出し1にtitleクラスを適用しtitleクラスの装飾</p>
+        </div>
+        <div>
+            <div class="another">
+                <div class="title">
+                    <h1>見出し2</h1>
+                </div>
+            </div>
+                <p>上の見出し2にtitleクラスをつけるが前のdivのtitleクラスとは別の装飾にする</p>
+                <p>ここの親要素divにanotherクラスを付ける</p>
+        </div>
+        <div>
+            <div id="id01">
+                <h1>id指定での装飾</h1>
+            </div>
+            <p>ここの親要素にid方式でスタイルを指定</p>
+        </div>
+    </body>
+</html>
